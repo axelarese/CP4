@@ -13,7 +13,7 @@ function App() {
         <Counter />
 
         <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
+          OkEdit <code>App.jsx</code> and save to test HMR updates.
         </p>
         <p>
           <a
