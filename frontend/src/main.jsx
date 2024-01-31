@@ -2,20 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UserContextProvider } from "./context/userContext";
-
-import Home from "./finalPage/home/Home";
-import Login from "./pages/login/Login";
+import LoginPage from "./finalPage/LoginPage";
 import NewService from "./finalPage/home/NewService";
 import Service from "./finalPage/home/Service";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Service />,
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <LoginPage />,
   },
   {
     path: "/add",

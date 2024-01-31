@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "./homeService.module.css";
 import HomeServiceCard from "./homeServiceCard";
+import allservice from "../../assets/images/allservice.jpg";
 
 export default function Header() {
   const [services, setServices] = useState([]);
@@ -15,11 +16,16 @@ export default function Header() {
 
   return (
     <div className={styles.globalContainer}>
-      <h2 className={styles.titleAllServices}>TOUS LES SERVICES</h2>
-      <div className={styles.preview_bike_container}>
-        {services.map((service) => (
-          <HomeServiceCard key={service.id} service={service} />
-        ))}
+      <div className={styles.headerContainer}>
+        <h2 className={styles.titleAllServices}>TOUS LES SERVICES</h2>
+        <img className={styles.allservices} src={allservice} alt="all" />
+      </div>
+      <div>
+        <div className={styles.preview_bike_container}>
+          {services.map((service) => (
+            <HomeServiceCard key={service.id} service={service} />
+          ))}
+        </div>
       </div>
     </div>
   );

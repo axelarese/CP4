@@ -1,7 +1,11 @@
-import Home from "./finalPage/home/Home";
+import Service from "./pages/homeService/homeService";
 
 function App() {
-  return <Home />;
+  return (
+    <>
+      <Service />;
+    </>
+  );
 }
 
 export default App;

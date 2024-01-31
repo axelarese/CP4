@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+h1 {
+  color: white;
+}
+
 .navBar {
   font-weight: bold;
   display: flex;
@@ -17,14 +21,12 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  margin-bottom: 0.5rem;
-
   text-align: center;
   width: 100%;
   padding-bottom: 1.8rem;
   &::before {
     content: "";
-    background-color: #013aaba1;
+    background-color: #000000eb;
     position: absolute;
     left: 50%;
     bottom: 5%;
@@ -63,6 +65,6 @@
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-style: italic;
 }

@@ -50,10 +50,10 @@ const seed = async () => {
     await database.query("delete from service");
     queries.push(
       database.query(
-        `INSERT INTO service (name, duration) VALUES
-            ('Auto', '1 heure'),
-            ('Moto', '45 minutes'),
-            ('Vélo', '30 minutes')`
+        `INSERT INTO service (name, duration, description) VALUES
+            ('Auto - Intérieur', '2 heures', 'Le detailling auto intérieur comprend notamment l''aspiration complète, la désinfection du volant et de poignées, le brossage des cuirs et tissus ou encore le cirage des plastiques.'),
+            ('Auto - Extérieur', '1 heure 30 minutes', 'Le detailling extérieur comprend notamment le prélavage à la main, le nettoyage des passages de roues ou encore le rinçage à haute pression après le lavage.'),
+            ('Moto', '1 heure', 'Le detailling moto comprend le lavage extérieur de l''intégralité de votre moto pour que vous ayez l''impression qu''elle sort du garage.')`
       )
     );
 

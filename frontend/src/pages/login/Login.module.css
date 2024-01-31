@@ -5,6 +5,11 @@
   margin-top: 2rem;
 }
 
+h2 {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
 .svgLogo {
   height: 10rem;
   border-radius: 50%;
@@ -30,7 +35,7 @@
   height: 2rem;
   width: 70%;
   border-radius: 1rem;
-  background-color: #013aaba1;
+  background-color: #000000b2;
   border: none;
   color: white;
 }
@@ -46,7 +51,7 @@
   margin-top: 3rem;
   height: 2.5rem;
   width: 50%;
-  background-color: #013bab;
+  background-color: #000000eb;
   color: white;
   border: none;
   border-radius: 1rem;
