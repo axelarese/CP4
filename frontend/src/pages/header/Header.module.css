@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+}
+
+.navBar {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.container {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+
+  text-align: center;
+  width: 100%;
+  padding-bottom: 1.8rem;
+  &::before {
+    content: "";
+    background-color: #013aaba1;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    width: 225%;
+    height: 700%;
+    z-index: -1;
+  }
+}
+
+.svgLogo {
+  height: 3rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+}
+
+.svgProfil {
+  height: 3rem;
+  padding-right: 1rem;
+}
+
+.svgLink {
+  text-decoration: none;
+}
+
+.test {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  line-height: 0;
+  fill: #f5b409;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+@media screen and (width > 768px) {
+  .svgLogo {
+    display: none;
+  }
+}
