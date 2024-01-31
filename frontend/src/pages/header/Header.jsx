@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.home}>
-        <Link className={styles.svgLink} to="/">
+        <Link className={styles.svgLink} to="/service">
           <img className={styles.svgLogo} src={logo} alt="profile" />
         </Link>
       </div>
