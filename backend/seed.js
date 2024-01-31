@@ -4,7 +4,7 @@
 require("dotenv").config();
 
 // Import Faker library for generating fake data
-const { faker } = require("@faker-js/faker");
+// const { faker } = require("@faker-js/faker");
 
 // Import database client
 const database = require("./database/client");
