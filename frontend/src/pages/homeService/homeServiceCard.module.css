@@ -1,0 +1,41 @@
+.globalContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 70%;
+  border-radius: 1rem;
+  background-color: #70707072;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  -webkit-box-shadow: 7px 8px 15px -5px #000000;
+  box-shadow: 7px 8px 15px -5px #000000;
+}
+
+.container:hover {
+  background-color: #51515172;
+}
+
+.serviceTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nameService,
+.durationService {
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.durationService {
+  font-style: italic;
+}
+
+.nameService {
+  font-weight: bold;
+}
