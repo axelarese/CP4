@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
 }
 
-.logoSVG {
-  height: 15rem;
+.svgLogo {
+  height: 10rem;
+  border-radius: 50%;
 }
 
 .logoContainer {
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
 }
