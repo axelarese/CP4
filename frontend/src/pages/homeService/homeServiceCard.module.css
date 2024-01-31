@@ -4,15 +4,27 @@
 }
 
 .container {
-  width: 70%;
+  width: 90%;
+  max-width: 50rem;
   border-radius: 1rem;
   background-color: #70707072;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
   margin: 2rem;
   -webkit-box-shadow: 7px 8px 15px -5px #000000;
   box-shadow: 7px 8px 15px -5px #000000;
+}
+
+.serviceLogo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.serviceLogo svg {
+  height: 2rem;
 }
 
 .container:hover {
@@ -34,8 +46,14 @@
 
 .durationService {
   font-style: italic;
+  margin: 0;
 }
 
 .nameService {
   font-weight: bold;
+}
+
+.descriptionService {
+  text-align: center;
+  margin: 1rem;
 }

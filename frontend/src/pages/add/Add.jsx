@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Add.module.css";
+import carwash1 from "../../assets/images/carwash1.jpg";
 
 export default function Add() {
   const [name, setName] = useState("");
   const [duration, setDuration] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -12,6 +14,10 @@ export default function Add() {
 
   const handleDurationChange = (event) => {
     setDuration(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
   };
 
   const navigate = useNavigate();
@@ -25,7 +31,7 @@ export default function Add() {
         {
           method: "post",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, duration }),
+          body: JSON.stringify({ name, duration, description }),
         }
       );
       if (response.status === 201) {
@@ -42,6 +48,7 @@ export default function Add() {
   return (
     <div className={styles.globalContainer}>
       <h2>NOUVEAU SERVICE</h2>
+      <img className={styles.carwash1} src={carwash1} alt="carwash1" />
       <input
         onChange={handleNameChange}
         type="text"
@@ -51,6 +58,11 @@ export default function Add() {
         onChange={handleDurationChange}
         type="text"
         placeholder="Durée du service"
+      />
+      <input
+        onChange={handleDescriptionChange}
+        type="text"
+        placeholder="Description"
       />
       <button onClick={handleSubmit} type="button">
         AJOUTER

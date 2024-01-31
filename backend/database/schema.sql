@@ -10,8 +10,9 @@ create table user (
 DROP TABLE IF EXISTS service;
 create table service (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name varchar(50) not null,
-  duration varchar(50) not null
+  name varchar(50) NOT NULL,
+  duration varchar(50) NOT NULL,
+  description varchar(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS userService;

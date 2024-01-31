@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useUserContext } from "../../context/userContext";
 import styles from "./Login.module.css";
 import Header from "../header/Header";
@@ -26,6 +28,19 @@ export default function Login() {
     setPassword(event.target.value);
   };
 
+  const notify = () => {
+    toast.success("🚀 Connexion réussi !", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
   // Gestionnaire de soumission du formulaire
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,6 +61,7 @@ export default function Login() {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
+        notify();
         const auth = await response.json();
         login(auth);
         navigate("/service");

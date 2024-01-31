@@ -26,8 +26,14 @@ router.post("/login", authControllers.login);
 // Route to get all services
 router.get("/allservice", serviceControllers.browse);
 
+// Route to get a specific service
+router.get("/allservice/:id", serviceControllers.readServiceById);
+
 // Route to post new service
 router.post("/service", serviceControllers.add);
+
+// Route to delete service
+router.delete("/service/delete/:id", serviceControllers.deleteService);
 
 /* ************************************************************************* */
 
