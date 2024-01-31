@@ -1,61 +1,63 @@
 import * as React from "react";
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../context/userContext";
 import styles from "./Login.module.css";
 import Header from "../header/Header";
 import logo from "../../assets/images/logoCW.jpeg";
 import Navbar from "../navBar/NavBar";
 
-// const defaultTheme = createTheme();
-
 export default function Login() {
-  // // États pour le mot de passe et la confirmation du mot de passe
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState([]);
+  // États pour le mot de passe et la confirmation du mot de passe
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // // Hook pour la navigation
-  // const navigate = useNavigate();
+  const { login } = useUserContext();
 
-  // // Gestionnaire de changement de l'email
-  // const handleMailChange = (event) => {
-  //   setEmail(event.target.value);
-  // };
-  // // Gestionnaire de changement du mot de passe
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value);
-  // };
+  // Hook pour la navigation
+  const navigate = useNavigate();
 
-  // // Gestionnaire de soumission du formulaire
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
+  // Gestionnaire de changement de l'email
+  const handleMailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  // Gestionnaire de changement du mot de passe
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
 
-  //   try {
-  //     // Appel à l'API pour créer un nouvel utilisateur
-  //     const response = await fetch(
-  //       `${import.meta.env.VITE_BACKEND_URL}/api/login`,
-  //       {
-  //         method: "post",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({
-  //           email,
-  //           password,
-  //         }),
-  //       }
-  //     );
+  // Gestionnaire de soumission du formulaire
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  //     // Redirection vers la page de connexion si la création réussit
-  //     if (response.status === 200) {
-  //       navigate("/");
-  //     } else {
-  //       // Log des détails de la réponse en cas d'échec
-  //       setError("Email ou mot de passe incorrect");
-  //     }
-  //   } catch (err) {
-  //     // Log des erreurs possibles
-  //     console.error(err);
-  //   }
-  // };
+    try {
+      // Appel à l'API pour créer un nouvel utilisateur
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/login`,
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      // Redirection vers la page de connexion si la création réussit
+      if (response.status === 200) {
+        const auth = await response.json();
+        login(auth);
+        navigate("/service");
+      } else {
+        // Log des détails de la réponse en cas d'échec
+        console.info(response);
+      }
+    } catch (err) {
+      // Log des erreurs possibles
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -66,9 +68,19 @@ export default function Login() {
         </div>
         <div className={styles.loginLogic}>
           <h2>CONNEXION</h2>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button type="button">SE CONNECTER</button>
+          <input onChange={handleMailChange} type="email" placeholder="Email" />
+          <input
+            onChange={handlePasswordChange}
+            type="password"
+            placeholder="Password"
+          />
+          <button
+            disabled={password === "" || email === ""}
+            onClick={handleSubmit}
+            type="button"
+          >
+            SE CONNECTER
+          </button>
         </div>
       </div>
       <Navbar />

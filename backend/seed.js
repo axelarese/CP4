@@ -1,10 +1,30 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-
+const argon2 = require("argon2");
 // Load environment variables from .env file
 require("dotenv").config();
 
 // Import Faker library for generating fake data
 // const { faker } = require("@faker-js/faker");
+
+// Code permettant de hacher le mot de passe de notre utilisateur fictif
+
+const hashingOptions = {
+  type: argon2.argon2id,
+  memoryCost: 19 * 2 ** 10, // 19 Mio en kio (19 * 1024 kio)
+  timeCost: 2,
+  parallelism: 1,
+};
+
+const passwordToHash = "Wild2024!";
+
+argon2
+  .hash(passwordToHash, hashingOptions)
+  .then((hash) => {
+    console.info("Mot de passe haché:", hash);
+  })
+  .catch((err) => {
+    console.error("Erreur de hachage du mot de passe:", err);
+  });
 
 // Import database client
 const database = require("./database/client");
@@ -19,11 +39,11 @@ const seed = async () => {
 
     // Generating Seed Data
 
-    await database.query("delete from admin");
+    await database.query("delete from user");
     queries.push(
       database.query(
-        `INSERT INTO admin (roleUser, email, hashedPassword) VALUES
-            ('Administrateur', 'axel@gmail.com', '$2y$10$J0gyH0ZoSBaF4iaiLpCjiuH/b4OHo8CUkNjETIlBa8FEhf7nUSdDa')`
+        `INSERT INTO user (roleUser, email, hashedPassword) VALUES
+            ('Administrateur', 'axel@gmail.com', '$argon2id$v=19$m=19456,t=2,p=1$DxbqRdC87+PnwXt/OB1Ntg$lxGiR/lM9YeGFHi2zRsmk+PQxLp4ySV1vcZhGHFsy2M')`
       )
     );
 
@@ -37,10 +57,10 @@ const seed = async () => {
       )
     );
 
-    await database.query("delete from adminService");
+    await database.query("delete from userService");
     queries.push(
       database.query(
-        `INSERT INTO adminService (admin_id, service_id) VALUES
+        `INSERT INTO userService (user_id, service_id) VALUES
             ('1', '1'),
             ('1', '2'),
             ('1', '3')`

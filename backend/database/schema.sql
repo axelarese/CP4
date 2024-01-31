@@ -1,6 +1,6 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
-create table admin (
+create table user (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   roleUser varchar(255) not null,
   email VARCHAR (100) NOT NULL,
@@ -14,12 +14,12 @@ create table service (
   duration varchar(50) not null
 );
 
-DROP TABLE IF EXISTS adminService;
-create table adminService (
+DROP TABLE IF EXISTS userService;
+create table userService (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  admin_id INT,
+  user_id INT,
   service_id INT,
-  CONSTRAINT admin_id FOREIGN KEY (admin_id) REFERENCES admin(id),
+  CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES user(id),
   CONSTRAINT service_id FOREIGN KEY (service_id) REFERENCES service(id)
 );
 
