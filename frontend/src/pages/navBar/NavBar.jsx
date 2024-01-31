@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className={styles.globalContainer}>
       <div className={styles.miniGlobalContainer}>
         <div>
-          <Link to="/">
+          <Link to="/service">
             <img className={styles.homeIcon} src={home} alt="home" />
           </Link>
         </div>

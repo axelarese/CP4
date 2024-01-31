@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./finalPage/home/Home";
 import Login from "./pages/login/Login";
 import NewService from "./finalPage/home/NewService";
+import Service from "./finalPage/home/Service";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/add",
     element: <NewService />,
+  },
+  {
+    path: "/service",
+    element: <Service />,
   },
 ]);
 
