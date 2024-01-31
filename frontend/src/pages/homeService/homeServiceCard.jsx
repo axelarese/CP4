@@ -17,8 +17,7 @@ export default function homeServiceCard({ service }) {
 
 homeServiceCard.propTypes = {
   service: PropTypes.shape({
-    image_url: PropTypes.string.isRequired,
-    brand: PropTypes.string.isRequired,
-    model: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    duration: PropTypes.string.isRequired,
   }).isRequired,
 };
