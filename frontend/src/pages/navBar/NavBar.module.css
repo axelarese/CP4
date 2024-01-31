@@ -15,12 +15,16 @@
 .miniGlobalContainer {
   height: 4rem;
   width: 70%;
+  padding-top: 0.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
   background-color: #013aaba1;
   border-radius: 5rem;
+  -webkit-box-shadow: 1px 1px 13px 1px #000000;
+  box-shadow: 1px 1px 13px 1px #000000;
+  max-width: 30rem;
 }
 
 @media (min-width: 767px) {

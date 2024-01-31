@@ -14,7 +14,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div>
-          <Link to="/">
+          <Link to="/add">
             <img className={styles.plusIcon} src={plus} alt="icon plus" />
           </Link>
         </div>
