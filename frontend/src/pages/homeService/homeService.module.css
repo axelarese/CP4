@@ -7,3 +7,18 @@
 .titleService {
   font-style: italic;
 }
+
+.titleAllServices {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.globalContainer {
+  overflow-x: auto;
+  height: 53.4rem;
+}
+
+html {
+  height: 100%;
+}
