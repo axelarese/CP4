@@ -58,10 +58,32 @@ const readServiceById = async (req, res, next) => {
   }
 };
 
+const updateService = async (req, res, next) => {
+  const { name, duration, description } = req.body;
+  const { id } = req.params;
+
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const item = await tables.service.update(name, duration, description, id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (item == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(item);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   add,
   browse,
   deleteService,
   readServiceById,
+  updateService,
 };
