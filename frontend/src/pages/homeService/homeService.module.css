@@ -13,11 +13,11 @@
   font-size: 2.5rem;
   color: black;
   text-align: center;
+  font-style: italic;
 }
 
 .globalContainer {
   overflow-x: auto;
-  height: 45rem;
 }
 
 html {
@@ -34,4 +34,15 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.globalCardContainer {
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 767px) {
+  .globalContainer {
+    overflow-x: auto;
+    height: 70rem;
+  }
 }
