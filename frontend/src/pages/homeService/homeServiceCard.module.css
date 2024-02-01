@@ -1,17 +1,20 @@
 .globalContainer {
   display: flex;
   justify-content: center;
+  border: red 1px solid;
 }
 
 .container {
+  border: green 1px solid;
   width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   max-width: 50rem;
   border-radius: 1rem;
   background-color: #70707072;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 2rem;
   -webkit-box-shadow: 7px 8px 15px -5px #000000;
   box-shadow: 7px 8px 15px -5px #000000;
 }
@@ -51,6 +54,7 @@
 
 .nameService {
   font-weight: bold;
+  color: rgb(0, 0, 92);
 }
 
 .descriptionService {

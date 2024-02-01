@@ -2,11 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Add.module.css";
 import carwash1 from "../../assets/images/carwash1.jpg";
+import { useUserContext } from "../../context/userContext";
 
 export default function Add() {
   const [name, setName] = useState("");
   const [duration, setDuration] = useState("");
   const [description, setDescription] = useState("");
+
+  const { token } = useUserContext();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -32,16 +35,17 @@ export default function Add() {
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, duration, description }),
+          Authorization: `Bearer ${token}`,
         }
       );
       if (response.status === 201) {
         console.info("ajout réussi");
         navigate("/service");
       } else {
-        console.error(`failed add to favorite, status ${response.status}`);
+        console.error(`Failed add to service, status ${response.status}`);
       }
     } catch (err) {
-      console.error("Error posting favorite:", err);
+      console.error("Error posting service:", err);
     }
   };
 

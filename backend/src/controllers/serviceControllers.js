@@ -5,7 +5,7 @@ const browse = async (req, res, next) => {
   try {
     const items = await tables.service.readAll();
 
-    res.json(items);
+    res.status(200).json(items);
   } catch (err) {
     next(err);
   }

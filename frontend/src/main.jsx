@@ -6,6 +6,7 @@ import LoginPage from "./finalPage/LoginPage";
 import NewService from "./finalPage/home/NewService";
 import Service from "./finalPage/home/Service";
 import UpPage from "./finalPage/UpPage";
+import RealisationPage from "./finalPage/RealisationsPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/service/update/:id",
     element: <UpPage />,
+  },
+  {
+    path: "/realisations",
+    element: <RealisationPage />,
   },
 ]);
 

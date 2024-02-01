@@ -27,7 +27,7 @@ const login = async (req, res, next) => {
         { sub: user.id, email: user.email },
         process.env.APP_SECRET,
         {
-          expiresIn: "1h",
+          expiresIn: "1500000",
         }
       );
 
