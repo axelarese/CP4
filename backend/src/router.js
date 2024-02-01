@@ -35,6 +35,9 @@ router.post("/service", serviceControllers.add);
 // Route to delete service
 router.delete("/service/delete/:id", serviceControllers.deleteService);
 
+// Route to update service
+router.put("/service/update/:id", serviceControllers.updateService);
+
 /* ************************************************************************* */
 
 module.exports = router;

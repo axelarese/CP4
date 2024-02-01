@@ -5,6 +5,7 @@ import { UserContextProvider } from "./context/userContext";
 import LoginPage from "./finalPage/LoginPage";
 import NewService from "./finalPage/home/NewService";
 import Service from "./finalPage/home/Service";
+import UpPage from "./finalPage/UpPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/service",
     element: <Service />,
+  },
+  {
+    path: "/service/update/:id",
+    element: <UpPage />,
   },
 ]);
 

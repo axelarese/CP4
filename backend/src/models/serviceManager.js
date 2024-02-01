@@ -41,6 +41,14 @@ class ItemManager extends AbstractManager {
     // Return the ID of the newly inserted user
     return true;
   }
+
+  async update(name, duration, description, id) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET name=?, duration=?, description=? WHERE ${this.table}.id=?`,
+      [name, duration, description, id]
+    );
+    return result;
+  }
 }
 
 module.exports = ItemManager;
