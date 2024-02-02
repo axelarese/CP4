@@ -12,7 +12,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <h1>Carwah_Detailling</h1>
+      <h1>Carwash_Detailling</h1>
 
       <div className={styles.favoris}>
         <Link className={styles.svgLink} to="/login">
