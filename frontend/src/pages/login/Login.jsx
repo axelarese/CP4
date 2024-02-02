@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useUserContext } from "../../context/userContext";
 import styles from "./Login.module.css";
@@ -13,6 +12,7 @@ export default function Login() {
   // États pour le mot de passe et la confirmation du mot de passe
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const { login } = useUserContext();
 
@@ -28,23 +28,11 @@ export default function Login() {
     setPassword(event.target.value);
   };
 
-  const notify = () => {
-    toast.success("🚀 Connexion réussi !", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
+  // const notifySuccess = (text) => toast.success(text);
+  // const notifyFail = () => toast.error("Un problème est survenu");
 
   // Gestionnaire de soumission du formulaire
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async () => {
     try {
       // Appel à l'API pour créer un nouvel utilisateur
       const response = await fetch(
@@ -61,11 +49,11 @@ export default function Login() {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
-        notify();
         const auth = await response.json();
         login(auth);
         navigate("/service");
       } else {
+        setError("Email ou mot de passe incorrect.");
         // Log des détails de la réponse en cas d'échec
         console.info(response);
       }
@@ -90,6 +78,7 @@ export default function Login() {
             type="password"
             placeholder="Password"
           />
+          <p className={styles.errorMessage}>{error}</p>
           <button
             disabled={password === "" || email === ""}
             onClick={handleSubmit}

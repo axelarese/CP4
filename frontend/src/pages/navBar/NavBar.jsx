@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import home from "../../assets/images/home.png";
 import plus from "../../assets/images/plus.png";
-import profil from "../../assets/images/user.png";
+import sideCar from "../../assets/images/sideCar.png";
 
 export default function Navbar() {
   return (
@@ -18,8 +18,8 @@ export default function Navbar() {
         </Link>
       </div>
       <div>
-        <Link to="/login">
-          <img className={styles.profilIcon} src={profil} alt="login" />
+        <Link to="/realisations">
+          <img className={styles.profilIcon} src={sideCar} alt="login" />
         </Link>
       </div>
     </nav>

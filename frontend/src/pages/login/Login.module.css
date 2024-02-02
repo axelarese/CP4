@@ -43,7 +43,6 @@ h2 {
 
 .loginLogic input::placeholder {
   color: white;
-
   font-style: italic;
 }
 
@@ -57,6 +56,11 @@ h2 {
   border: none;
   border-radius: 1rem;
   cursor: pointer;
+}
+
+.errorMessage {
+  color: red;
+  font-style: italic;
 }
 
 @media (min-width: 767px) {

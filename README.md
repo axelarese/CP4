@@ -1,21 +1,12 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Il s'agit d'une application à destination d'un auto-entrepreneur qui est spécialisé dans le detailling auto. Il s'agit d'une pratique consistant à un lavage auto extérieur et intérieur mais poussé à l'extrême avec des techniques bien particulières.
+
+L'application est une possibilité pour ce professionnel de mettre en avant ses services : les ajouter, les supprimer ou encore les modifier.
 
 ## Setup & Use
 
-### Windows users
-
-Be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
-
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
-
-### Project Initialization
-
+Une fois que vous avez clôné le dépôt, veuillez suivre les étapes suivantes :
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
 - Run command `npm install`
